@@ -1,0 +1,50 @@
+.rand-inp {
+    width: 90%;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.active-btn {
+    background: rgb(58, 58, 58);
+    color: rgb(252, 240, 240);
+}
+
+.border{
+    min-height: 60px;
+    width: auto;
+    background: rgb(255, 255, 255);
+    border: 5px double rgb(124, 124, 124) !important;   
+    
+}
+
+.out{
+    font-family: 'Otomanopee One', sans-serif;
+    color: rgb(56, 172, 33);
+}
+
+.index-arr{
+    padding: 3px;
+    /* background: rgb(196, 193, 193); */
+    border-radius: 30%;
+    color: rgb(179, 179, 179);
+    display: block;
+}
+
+.item-arr{
+    display: inline-block;
+    padding: 0px 5px;
+    color: rgb(7, 7, 7);
+    background: rgba(165, 163, 163, 0.562);
+    border-radius: 10px;
+    min-width: 40%;
+}
+
+.block-item{
+    margin-bottom: 10px;
+}
+
+.hide {
+    display: none;
+}
