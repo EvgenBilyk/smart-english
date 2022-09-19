@@ -19,3 +19,9 @@ body {
 .translate {
     min-height: 350px;
 }
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: auto;
+    }
+}
