@@ -5,104 +5,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="css.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
-    <title>Random</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Cormorant+Garamond:ital,wght@1,600&family=Lobster&family=Merriweather:ital@1&family=Yanone+Kaffeesatz:wght@700&display=swap"
+        rel="stylesheet">
+    <title>Smart English</title>
 </head>
 
 <body>
-    <div class="container-fluid mt-5 gx-5">
-        <h4 class="mb-3">Генератор рэндом чисел</h4>
-        <div class="row">
-            <div class="col-lg-6">
-                <form>
-                    <div class="row">
-                        <h5 class="mb-3">Выберите диапазон</h5>
-                        <div class="col-lg-3">от</div>
-                        <div class="col-lg-3">
-                            <label for="fromNumber" class="visually-hidden"></label>
-                            <input type="number" class="form-control rand-inp inline" id="fromNumber"
-                                placeholder="начало" value="1">
-                        </div>
-                        <div class="col-lg-1">до</div>
-                        <div class="col-lg-3">
-                            <label for="fromNumber" class="visually-hidden">конец</label>
-                            <input type="number" class="form-control rand-inp inline" id="toNumber" placeholder="конец"
-                                value="100">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <h5 class="mb-3">Выберите количество чисел</h5>
-                        <div class="col-lg-3">Получить чисел</div>
-                        <div class="col-lg-3">
-                            <label for="fromNumber" class="visually-hidden"></label>
-                            <input type="number" class="form-control rand-inp inline" id="countNumber" placeholder="5"
-                                value="5">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3">Разделитель</div>
-                        <div class="col-lg-3">
-                            <label for="delimiterNumber" class="visually-hidden"></label>
-                            <input type="text" class="form-control rand-inp inline" id="delimiterNumber"
-                                placeholder="начало" value="-">
-                        </div>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="notDoubleNumber">
-                        <label class="form-check-label" for="doubleNumber">
-                            Без повторов
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="orderNumber">
-                        <label class="form-check-label" for="orderNumber">
-                            Сортировать результаты по порядку
-                        </label>
-                    </div>
-                    <div class="d-grid gap-2">
-                        <button type="button" class="btn btn-success mt-2" id="btnResult">Получить случайные
-                            числа</button>
-                    </div>
-                </form>
+    <div class="text_block container mt-3 py-2">
+        <div class="translate">
+            <div class="row">
+                <div class="col-8">
+                    <span class="badge bg-secondary" id="count_word">0/0</span>
+                    <span class="badge bg-secondary" id="count_percent">0 %</span>
+                </div>
+                <div class="form-check col-3">
+                    <button type="button" class="btn btn-secondary btn-sm" id="clear_data">clear data</button>
+                </div>
             </div>
-            <div class="col-lg-6 hide result-random">
-                <div class="border mt-4 ">
-                    <div class="text-wrap">
-                        <p class="text-center fs-1 out"> </p>
-                    </div>
-                </div>
-                <div class="protocol">
-                    <table class="table">
-
-                        <tbody class="table-condition">
-                            <tr>
-                                <td>Условия</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Создание</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="full-report">
-                    <div class="row contein-item">
-
-                    </div>
-                </div>
+            <p class="text-center fs-1 fw-bold ukr" id="ukr_word"></p>
+            <p class="text-center fs-1 fw-bold eng" id="eng_word"></p>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <select class="form-select" id="second" aria-label="Default select example">
+                    <option value="1">1 second</option>
+                    <option value="2">2 second</option>
+                    <option value="3" selected>3 second</option>
+                    <option value="4">4 second</option>
+                    <option value="5">5 second</option>
+                    <option value="6">6 second</option>
+                    <option value="7">7 second</option>
+                </select>
+            </div>
+            <div class="col-5">
+                <button type="button" class="btn btn-secondary fw-bold" id="start">S T A R T</button>
+                <button type="button" class="btn btn-secondary fw-bold" id="stop">S T O P</button>
+            </div>
+            <div class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="false" id="random">
+                <label class="form-check-label" for="random">
+                    <span class="badge bg-secondary">random</span>
+                </label>
             </div>
         </div>
+        <div class="row mt-2">
+            <div class="btn-group col-12" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-secondary" id="back">Back</button>
+                <button type="button" class="btn btn-secondary" id="forward">Forward</button>
+            </div>
+        </div>
+
     </div>
-    <script type="text/JavaScript" src=" https://MomentJS.com/downloads/moment.js"></script>
-    <script src="js.js" type="module"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script src="script/script.js"></script>
 </body>
 
 </html>

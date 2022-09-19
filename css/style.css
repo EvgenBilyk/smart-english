@@ -1,0 +1,21 @@
+body {
+    background: rgb(40, 40, 37);
+}
+
+.text_block {
+    width: 500px;
+    border-radius: 10px;
+    /* border: 2px solid rgb(254, 254, 249); */
+}
+
+.ukr {
+    color: rgb(73, 209, 87);
+}
+
+.eng {
+    color: rgb(89, 177, 225);
+}
+
+.translate {
+    min-height: 350px;
+}
