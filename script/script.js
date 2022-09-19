@@ -11,7 +11,6 @@ window.onload = () => {
     let storage = localStorage.getItem('dataEng');
 
     if (storage !== null) {
-        console.log(storage)
         dataValue = JSON.parse(storage);
         count_word.textContent = `0/${dataValue.length}`;
         ukr.textContent = "<-- START -->";
