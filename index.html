@@ -19,14 +19,20 @@
 
 <body>
     <div class="text_block container mt-3 py-2">
+
         <div class="translate">
             <div class="row">
                 <div class="col-6">
                     <span class="badge bg-secondary" id="count_word">0/0</span>
                     <span class="badge bg-secondary" id="count_percent">0 %</span>
                 </div>
-                <div class="col-2">
+                <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="false" id="random">
+                    <label class="form-check-label" for="random">
+                        <span class="badge bg-secondary">random</span>
+                    </label>
                 </div>
+
                 <div class="form-check col-4">
                     <button type="button" class="btn btn-secondary btn-sm" id="clear_data">clear data</button>
                 </div>
@@ -34,8 +40,25 @@
             <p class="text-center fs-1 fw-bold ukr" id="ukr_word"></p>
             <p class="text-center fs-1 fw-bold eng" id="eng_word"></p>
         </div>
-        <div class="row">
+        <div class="div row">
             <div class="col-5">
+                <p class="fs-5 info">first text</p>
+                <select class="form-select" id="secondSmall" aria-label="Default select example">
+                    <option value="1">1 second</option>
+                    <option value="2">2 second</option>
+                    <option value="3" selected>3 second</option>
+                    <option value="4">4 second</option>
+                    <option value="5">5 second</option>
+                    <option value="6">6 second</option>
+                    <option value="7">7 second</option>
+                    <option value="7">8 second</option>
+                    <option value="7">9 second</option>
+                    <option value="7">10 second</option>
+                </select>
+            </div>
+
+            <div class="col-5">
+                <p class="fs-5 info">second text</p>
                 <select class="form-select" id="second" aria-label="Default select example">
                     <option value="1">1 second</option>
                     <option value="2">2 second</option>
@@ -44,17 +67,14 @@
                     <option value="5">5 second</option>
                     <option value="6">6 second</option>
                     <option value="7">7 second</option>
+                    <option value="7">8 second</option>
+                    <option value="7">9 second</option>
+                    <option value="7">10 second</option>
                 </select>
             </div>
-            <div class="col-3">
-            </div>
-            <div class="form-check col-3">
-                <input class="form-check-input" type="checkbox" value="false" id="random">
-                <label class="form-check-label" for="random">
-                    <span class="badge bg-secondary">random</span>
-                </label>
-            </div>
+
         </div>
+
         <div class="row mt-2">
             <div class="btn-group col-12" role="group" aria-label="Basic mixed styles example">
                 <button type="button" class="btn btn-secondary" id="back">Back</button>
@@ -71,6 +91,7 @@
                 <button type="btn-group col-6" class="btn btn-secondary fw-bold" id="stop">S T O P</button>
             </div>
         </div>
+
 
     </div>
 

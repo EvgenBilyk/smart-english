@@ -11,28 +11,28 @@
     color: rgb(252, 240, 240);
 }
 
-.border{
+.border {
     min-height: 60px;
     width: auto;
     background: rgb(255, 255, 255);
-    border: 5px double rgb(124, 124, 124) !important;   
-    
+    border: 5px double rgb(124, 124, 124) !important;
+
 }
 
-.out{
+.out {
     font-family: 'Otomanopee One', sans-serif;
     color: rgb(56, 172, 33);
 }
 
-.index-arr{
+.index-arr {
     padding: 3px;
-    /* background: rgb(196, 193, 193); */
+    background: rgb(196, 193, 193);
     border-radius: 30%;
     color: rgb(179, 179, 179);
     display: block;
 }
 
-.item-arr{
+.item-arr {
     display: inline-block;
     padding: 0px 5px;
     color: rgb(7, 7, 7);
@@ -41,10 +41,18 @@
     min-width: 40%;
 }
 
-.block-item{
+.block-item {
     margin-bottom: 10px;
 }
 
 .hide {
     display: none;
+}
+
+.label-timer {
+    background: red;
+    color: rgb(255, 255, 255);
+    size: 14px;
+    z-index: 9999;
+
 }

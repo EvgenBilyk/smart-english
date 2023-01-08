@@ -1,5 +1,3 @@
-localStorage.setItem('myCat', 'Tom');
-
 let dataValue = [];
 let count_word = document.querySelector('#count_word');
 let count_percent = document.querySelector('#count_percent');
@@ -15,25 +13,25 @@ window.onload = () => {
         count_word.textContent = `0/${dataValue.length}`;
         ukr.textContent = "<-- START -->";
         return
+    } else {
+        let idSheet = "12l0FC7BT_UeJ2-kvVL_6cqw4Sh0wgoha8fHFcoclAPQ";
+        let nameList = "list_1";
+        let linkApp = "https://script.google.com/macros/s/AKfycbxTmL3s4uBH-b77G34Tgf3ohjmQN7DW3tHUehSn50h7L_lDgI4xVck5tEHkTz-qZMhx9g/exec";
+
+        let linkRequestTest = `${linkApp}?nameList=${nameList}&idSheet=${idSheet}`
+
+        fetch(linkRequestTest)
+            .then(data => {
+                return data.text();
+            })
+            .then(data => {
+                let arr = JSON.parse(data);
+                dataValue = arr[0].values;
+                localStorage.setItem('dataEng', JSON.stringify(dataValue))
+                count_word.textContent = `0/${dataValue.length}`;
+                ukr.textContent = "<-- START -->";
+            });
     }
-
-    let idSheet = "12l0FC7BT_UeJ2-kvVL_6cqw4Sh0wgoha8fHFcoclAPQ";
-    let nameList = "list_1";
-    let linkApp = "https://script.google.com/macros/s/AKfycbxTmL3s4uBH-b77G34Tgf3ohjmQN7DW3tHUehSn50h7L_lDgI4xVck5tEHkTz-qZMhx9g/exec";
-
-    let linkRequestTest = `${linkApp}?nameList=${nameList}&idSheet=${idSheet}`
-
-    fetch(linkRequestTest)
-        .then(data => {
-            return data.text();
-        })
-        .then(data => {
-            let arr = JSON.parse(data);
-            dataValue = arr[0].values;
-            localStorage.setItem('dataEng', JSON.stringify(dataValue))
-            count_word.textContent = `0/${dataValue.length}`;
-            ukr.textContent = "<-- START -->";
-        });
 }
 
 let randomData = [];
@@ -41,34 +39,41 @@ let set = {
     count: 0,
     random: false,
     length: dataValue.length,
-    interval: 1,
-    action: false
+    interval: 3,
+    intervalSmall: 3,
+    action: false,
 }
 
 var intervalBig;
-var intervalSmall
+var intervalSmall;
 
 function render() {
-    let interval = (set.interval + 3) * 1000;
+    let interval = (set.interval + set.intervalSmall) * 1000;
 
-    if (set.count !== 0) {
-        set.count--;
-    } else {
-        ukr.textContent = "<-- WAIT -->";
-        eng.textContent = "";
-    }
+    set.dataValue = dataValue;
+    set.randomData = randomData;
+
+    let arr = (set.random) ? randomData : dataValue;
+    ukr.textContent = arr[set.count].ukr;
+    let count = set.count;
+    eng.textContent = "";
+    count_word.textContent = `${count + 1}/${arr.length}`;
+    count_percent.textContent = `${Math.round(((count + 1) / (arr.length)) * 100)} %`;
 
     intervalBig = setInterval(() => {
+
         let arr = (set.random) ? randomData : dataValue;
         if (set.action && (set.count <= (arr.length - 1))) {
+
             let count = set.count;
             eng.textContent = "";
             count_word.textContent = `${count + 1}/${arr.length}`;
             count_percent.textContent = `${Math.round(((count + 1) / (arr.length)) * 100)} %`;
             ukr.textContent = arr[count].ukr;
+
             intervalSmall = setTimeout(() => {
                 eng.textContent = arr[count].eng;
-            }, set.interval * 1000);
+            }, set.intervalSmall * 1000);
             set.count++;
         } else if (set.count > arr.length - 1) {
             eng.textContent = "<-- FINISH -->";
@@ -99,12 +104,18 @@ document.querySelector('#start').onclick = () => {
 document.querySelector('#back').onclick = () => {
     if (set.count !== 0) {
         set.count--;
+        clearInterval(intervalBig);
+        clearInterval(intervalSmall);
+        render();
     }
 }
 
 document.querySelector('#forward').onclick = () => {
     if (set.count <= dataValue.length - 1) {
         set.count++;
+        clearInterval(intervalBig);
+        clearInterval(intervalSmall);
+        render();
     }
 }
 
@@ -117,6 +128,9 @@ document.querySelector("#second").onchange = function () {
     set.interval = +document.getElementById("second").value;
 };
 
+document.querySelector("#secondSmall").onchange = function () {
+    set.intervalSmall = +document.getElementById("secondSmall").value;
+};
 
 function randomArr(arr) {
     let order = [];

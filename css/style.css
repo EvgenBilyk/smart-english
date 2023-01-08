@@ -20,6 +20,11 @@ body {
     min-height: 350px;
 }
 
+.info {
+    color: rgb(56, 135, 208);
+    margin: 0;
+}
+
 @media screen and (max-width: 576px) {
     .container {
         width: auto;
